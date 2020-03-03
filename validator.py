@@ -1,13 +1,16 @@
-from scanner import *
-from parser import *
+from scanner import Scanner
+from parser import Parser
 
-def validate(input_file):
-    scanner = Scanner(input_file)
-    scanner.print_file()
+class JsonSchemaValidator:
 
-    parser = Parser(scanner)
-    parser.start()
+    def validate(self, input_file):
+        scanner = Scanner(input_file)
+        scanner.print_file()
+
+        parser = Parser(scanner)
+        parser.start()
 
 if __name__ == "__main__":
-    validate('exampleFile.txt')
+    validator = JsonSchemaValidator()
+    validator.validate('exampleFile.txt')
     
